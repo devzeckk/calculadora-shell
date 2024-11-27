@@ -1,6 +1,3 @@
-# calculadora-shell
- Calculadora feita no terminal do ubuntu
- ---------------------------------------
 # ✨ Como Executar um Arquivo `.sh` 🖥️
 
 📄 Arquivos com a extensão `.sh` geralmente contêm scripts que podem ser executados no terminal de sistemas baseados em 🐧 Unix, como Linux e 🍎 macOS. Abaixo, explicamos como executar esses arquivos de forma segura e eficiente.
@@ -72,5 +69,83 @@ sh nome_do_arquivo.sh
 - **Erro: ****`Command not found`**
   Verifique se está no 📂 diretório correto e use `./` antes do nome do arquivo.
 
-Agora você está pronto para executar arquivos `.sh` com segurança e eficiência! ✅
+## 📌 Explicação de um Script em Bash e Python 🐍
+
+### Script em Bash: Calculadora Simples 🖩
+
+#### Código Bash:
+```bash
+#!/bin/bash
+
+echo "Escolha uma operação:"
+echo "1 - Soma"
+echo "2 - Subtração"
+echo "3 - Multiplicação"
+echo "4 - Divisão"
+
+read operacao
+
+echo "Digite o primeiro número:"
+read num1
+
+echo "Digite o segundo número:"
+read num2
+
+case $operacao in
+   1) echo "Resultado: $(($num1 + $num2))";;
+   2) echo "Resultado: $(($num1 - $num2))";;
+   3) echo "Resultado: $(($num1 * $num2))";;
+   4) 
+      if [ $num2 -eq 0 ]; then
+         echo "Erro: Divisão por zero!"
+      else
+         echo "Resultado: $(($num1 / $num2))"
+      fi
+      ;;
+   *) echo "Operação inválida";;
+esac
+```
+
+#### Explicação:
+1️⃣ O script apresenta ao usuário um menu com operações matemáticas.
+2️⃣ Lê as entradas do usuário para a operação desejada, o primeiro número e o segundo número.
+3️⃣ Usa um bloco `case` para executar a operação selecionada.
+4️⃣ Inclui uma verificação para evitar divisão por zero.
+
+### Código Python Equivalente 🐍
+
+#### Código Python:
+```python
+print("Escolha uma operação:")
+print("1 - Soma")
+print("2 - Subtração")
+print("3 - Multiplicação")
+print("4 - Divisão")
+
+operacao = int(input("Digite o número da operação: "))
+num1 = float(input("Digite o primeiro número: "))
+num2 = float(input("Digite o segundo número: "))
+
+if operacao == 1:
+    print(f"Resultado: {num1 + num2}")
+elif operacao == 2:
+    print(f"Resultado: {num1 - num2}")
+elif operacao == 3:
+    print(f"Resultado: {num1 * num2}")
+elif operacao == 4:
+    if num2 == 0:
+        print("Erro: Divisão por zero!")
+    else:
+        print(f"Resultado: {num1 / num2}")
+else:
+    print("Operação inválida")
+```
+
+#### Explicação:
+1️⃣ O código apresenta um menu de opções ao usuário.
+2️⃣ Lê as entradas do usuário usando `input()`.
+3️⃣ Usa estruturas condicionais `if-elif` para executar a operação selecionada.
+4️⃣ Inclui uma verificação para evitar divisão por zero.
+
+Ambos os scripts fornecem uma calculadora simples e interativa no terminal! ✅
 
